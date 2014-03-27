@@ -6,8 +6,8 @@ Not intended for public consumption. Just some preliminary feeler work for an as
 Branch status
 -------------
 
-[![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/master](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
-[![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/NAudio)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+[![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/master)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+[![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/NAudio)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
 
 
 Things to investigate
