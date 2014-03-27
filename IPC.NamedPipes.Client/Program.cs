@@ -1,14 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 
-namespace IPC.NamedPipes.Client
+namespace IPC.NamedPipes
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var quit = new ManualResetEvent(false);
+            Console.CancelKeyPress += (s, a) =>
+            {
+                quit.Set();
+                a.Cancel = true;
+            };
+
+            // run server
+
+            Console.WriteLine("Named pipe client running; Ctrl+C to quit");
+            quit.WaitOne();
         }
     }
 }

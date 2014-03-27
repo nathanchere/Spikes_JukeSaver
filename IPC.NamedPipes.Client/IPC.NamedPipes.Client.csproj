@@ -7,7 +7,7 @@
     <ProjectGuid>{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IPC.NamedPipes.Client</RootNamespace>
+    <RootNamespace>IPC.NamedPipes</RootNamespace>
     <AssemblyName>IPC.NamedPipes.Client</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPC.NamedPipes.Server\IPC.NamedPipes.Server.csproj">
+      <Project>{cddee03d-a87f-43b8-b867-765c09a462f0}</Project>
+      <Name>IPC.NamedPipes.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
