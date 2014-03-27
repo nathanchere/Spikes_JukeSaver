@@ -1,7 +1,7 @@
 JukeSaver spikes
 ================
 
-Not intended for public consumption.
+Not intended for public consumption. Just some preliminary feeler work for an as-yet vaporware music player and screensaver package.
 
 Branch status
 -------------
