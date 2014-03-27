@@ -14,7 +14,8 @@ namespace IPC.NamedPipes
                 a.Cancel = true;
             };
 
-            // run server
+            var client = new Client();
+            client.Run();
 
             Console.WriteLine("Named pipe client running; Ctrl+C to quit");
             quit.WaitOne();
