@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using NAudio.Wave;
 
 namespace NAudio.Basic
@@ -10,21 +11,20 @@ namespace NAudio.Basic
     {        
         static void Main(string[] args)
         {
-            bool quit = false;
-            Console.CancelKeyPress += (sender, eventArgs) => quit = true;
+            var quit = new ManualResetEvent(false);
+            Console.CancelKeyPress += (s, a) => {
+                quit.Set();
+                a.Cancel = true;
+            };
 
-            IWavePlayer waveOutDevice;
-            AudioFileReader audioFileReader;
+            var device = new DirectSoundOut();
+            var audio = new AudioFileReader("doowackadoo.mp3");
 
-            waveOutDevice = new WaveOut();
-           
-            audioFileReader = new AudioFileReader("doowackadoo.mp3");
-
-            waveOutDevice.Init(audioFileReader);
-            waveOutDevice.Play();
+            device.Init(audio);
+            device.Play();
 
             Console.WriteLine("Playing doowackadoo; Ctrl+C to quit");
-            while(!quit);
+            quit.WaitOne();
         }
     }
 }
