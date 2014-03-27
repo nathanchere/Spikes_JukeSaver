@@ -10,6 +10,8 @@ master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l
 
 NAudio: [![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/NAudio)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
 
+IPC: NAudio: [![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/IPC)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+
 
 Things to investigate
 ---------------------
