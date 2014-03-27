@@ -48,12 +48,12 @@ namespace NAudio.SpectrumAnalyser
             return result;
         }
 
-        private static byte updateCount = 0;
+        private static byte fftUpdateCount = 0;
         private static void DoFft(Complex[] results)
         {
-            if(updateCount != 30)
+            if(fftUpdateCount != 30)
             {
-                updateCount += 1;
+                fftUpdateCount += 1;
                 return;
             }
             
@@ -61,9 +61,16 @@ namespace NAudio.SpectrumAnalyser
 
         }
 
+        private static byte maxUpdateCount = 0;
         private static void DoMaxCalculated(MaxSampleEventArgs args)
         {
-            throw new NotImplementedException();
+            if(maxUpdateCount != 30)
+            {
+                maxUpdateCount  += 1;
+                return;
+            }
+
+            Console.WriteLine("Maxcalcd: " + args.MaxSample);
         }
     }
 }
