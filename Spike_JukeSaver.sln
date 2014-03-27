@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Audio Playback", "Audio Pla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAudio.SpectrumAnalyser", "NAudio.SpectrumAnalyser\NAudio.SpectrumAnalyser.csproj", "{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IPC", "IPC", "{844287EE-A1A9-4CD7-871D-4B87AD9EA4F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Server", "IPC.NamedPipes.Server\IPC.NamedPipes.Server.csproj", "{CDDEE03D-A87F-43B8-B867-765C09A462F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Client", "IPC.NamedPipes.Client\IPC.NamedPipes.Client.csproj", "{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,14 @@ Global
 		{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDDEE03D-A87F-43B8-B867-765C09A462F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDDEE03D-A87F-43B8-B867-765C09A462F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDDEE03D-A87F-43B8-B867-765C09A462F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDDEE03D-A87F-43B8-B867-765C09A462F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -28,5 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B946AA38-3B75-45AF-96F0-5C9A63B3F517} = {8C53FABF-9558-42C8-89F8-6BDD93369126}
 		{B5F2DA9D-D019-41DC-96BD-5AFADB898D18} = {8C53FABF-9558-42C8-89F8-6BDD93369126}
+		{CDDEE03D-A87F-43B8-B867-765C09A462F0} = {844287EE-A1A9-4CD7-871D-4B87AD9EA4F9}
+		{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6} = {844287EE-A1A9-4CD7-871D-4B87AD9EA4F9}
 	EndGlobalSection
 EndGlobal
