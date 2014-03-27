@@ -40,7 +40,7 @@ namespace IPC.NamedPipes
 
             while (true)
             {
-                if (pipeClient.IsConnected && !pipeClient.IsMessageComplete)
+                if (pipeClient.IsConnected) // && !pipeClient.IsMessageComplete
                 {
                     byte[] bResponse = new byte[Config.BufferSize];
                     int cbResponse = bResponse.Length;
