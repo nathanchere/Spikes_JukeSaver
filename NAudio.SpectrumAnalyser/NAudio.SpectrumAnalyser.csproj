@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B946AA38-3B75-45AF-96F0-5C9A63B3F517}</ProjectGuid>
+    <ProjectGuid>{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NAudio.Basic</RootNamespace>
-    <AssemblyName>NAudio.Basic</AssemblyName>
+    <RootNamespace>NAudio.SpectrumAnalyser</RootNamespace>
+    <AssemblyName>NAudio.SpectrumAnalyser</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

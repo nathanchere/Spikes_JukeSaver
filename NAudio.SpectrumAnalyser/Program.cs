@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using NAudio.Wave;
 
-namespace NAudio.Basic
+namespace NAudio.SpectrumAnalyser
 {
     class Program
     {        
