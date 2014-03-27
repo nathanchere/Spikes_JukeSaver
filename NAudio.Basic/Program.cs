@@ -25,6 +25,10 @@ namespace NAudio.Basic
 
             Console.WriteLine("Playing doowackadoo; Ctrl+C to quit");
             quit.WaitOne();
+
+            if(device != null) device.Stop();
+            if(audio != null) audio.Dispose();
+            if(device != null) device.Dispose();
         }
     }
 }
