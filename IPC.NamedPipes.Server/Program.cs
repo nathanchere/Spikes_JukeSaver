@@ -14,10 +14,13 @@ namespace IPC.NamedPipes
                 a.Cancel = true;
             };
 
-            // run server
+            var server = new Server();
+            server.Run();
 
-            Console.WriteLine("Named pipe server running; Ctrl+C to quit");
+            Console.WriteLine("Named pipe server running; Ctrl+C to quit");           
             quit.WaitOne();
+
+            // TODO: Dispose server if needed
         }
     }
 }
