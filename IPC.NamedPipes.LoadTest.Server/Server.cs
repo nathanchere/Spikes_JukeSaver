@@ -47,12 +47,12 @@ namespace IPC.NamedPipes
             pipeServer.WaitForConnection();
             Console.WriteLine("...Connected!");            
 
-            timer = new Timer {               
-                Interval = 2000,                
+            timer = new Timer {
+                Interval = 1,
             };
 
             timer.Elapsed += (sender, args) => { 
-                var message = counter++ + ": Ping! Time is " + DateTime.Now.ToLocalTime();            
+                var message = counter++ + ": Ping! Time is " + DateTime.Now.ToLocalTime();
                 var messageBytes = Encoding.Unicode.GetBytes(message);
                 Console.WriteLine(message);
 
