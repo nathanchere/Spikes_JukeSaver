@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}</ProjectGuid>
+    <ProjectGuid>{52F85A88-66C4-42A5-B48A-F609F732B2C5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IPC.NamedPipes</RootNamespace>
-    <AssemblyName>IPC.NamedPipes.Client</AssemblyName>
+    <AssemblyName>IPC.NamedPipes.LoadTest.Client</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,9 +45,9 @@
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPC.NamedPipes.Server\IPC.NamedPipes.Server.csproj">
+    <ProjectReference Include="..\IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj">
       <Project>{cddee03d-a87f-43b8-b867-765c09a462f0}</Project>
-      <Name>IPC.NamedPipes.Server</Name>
+      <Name>IPC.NamedPipes.Basic.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
