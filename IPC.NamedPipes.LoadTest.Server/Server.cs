@@ -15,7 +15,7 @@ namespace IPC.NamedPipes
         private NamedPipeServerStream pipeServer;
         private long counter = 0;
         private Timer timer;
-        private const bool THROTTLE_TIMER = true;
+        private const bool THROTTLE_TIMER = false;
         private const int THROTTLE_DELAY = 2000;
 
         public void Dispose()
