@@ -8,27 +8,27 @@ Branch status
 
 master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/master)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
 
-NAudio: [![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/NAudio)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+Branch summary 
+--------------
 
-IPC: NAudio: [![NAudio](https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/IPC)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+* Audio playback
+ * **NAudio.Basic** - basic NAudio usage; loading and playing an MP3
+ * **NAudio.SpectrumAnalyser** -how to apply FFT to samples to get simplified data for visualisation
+* IPC
+ * **IPC.NamedPipes.Basic** - bare minimum effort required to get two separate applications talking over named pipes
+ * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
 
+TODO
+----
 
-Things to investigate
----------------------
-
-* IPC options
- * reliability
- * ease of use
- * can be used local + remote
- * high bandwidth performance
-* Audio options
- * native DLL + wrapper? eg Fmod
- * managed lib? eg NAudio
-* rendering options
- * Unity (probably depends on IPC method)
- * Mogre
-* cross-platform considerations for all-of-the-above
- * Mono compatible? ie easy Linux port?
+* Audio - FMod
+* IPC - behavior across different machines
+* IPC - low-bandwith performance / issues
+* IPC - (de-)serialization over transports
+* IPC - memory-mapped files
+* Visualisation - Unity
+* Visualation - Mogre
+* Portablility - Mono compatilibilty
 
 
 Misc references
