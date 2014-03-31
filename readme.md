@@ -47,10 +47,11 @@ FmodSharp
 
 + much more feature-rich
 + better documentation via official Fmod SDK
-- requires .Net Framework 4.0
-- 'pull' event model more than offsets core performance benefits
-- typical non-managed code issues
 - additonal "fmodex.dll" dependency to be distributed
+- requires .Net Framework 4.0
+- no "AnyCPU" support - x86 only
+- 'pull' event model more than offsets core performance benefits
+- typical non-managed code issues; more work required to manage resources cleanly
 
 Misc references
 ---------------

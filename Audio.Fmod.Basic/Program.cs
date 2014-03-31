@@ -20,12 +20,13 @@ namespace Audio.Fmod.Basic
             {
                 fmod.Init();
 
-                var audio = fmod.CreateSound(FILE_NAME);
-                fmod.PlaySound(audio);                
+                using (var audio = fmod.CreateSound(FILE_NAME))
+                {
+                    fmod.PlaySound(audio);
 
-                Console.WriteLine("FmodSharp test\nPlaying doowackadoo; Ctrl+C to quit");
-                quit.WaitOne();                
-
+                    Console.WriteLine("FmodSharp test\nPlaying doowackadoo; Ctrl+C to quit");
+                    quit.WaitOne();
+                }
                 fmod.CloseSystem();
             }
         }
