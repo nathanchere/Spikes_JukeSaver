@@ -10,17 +10,13 @@ master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l
 
 Branch summary 
 --------------
-* Audio playback
- * NAudio.Basic
-   Basic NAudio usage; loading and playing an MP3
- * NAudio.SpectrumAnalyser
-   How to apply FFT to samples to get simplified data for visualisation
 
+* Audio playback
+ * **NAudio.Basic** - basic NAudio usage; loading and playing an MP3
+ * **NAudio.SpectrumAnalyser** -how to apply FFT to samples to get simplified data for visualisation
 * IPC
- * IPC.NamedPipes.Basic
-   Bare minimum effort required to get two separate applications talking over named pipes
- * IPC.NamedPipes.LoadTest
-   Named Pipes performance under load, and how both client and server can handle the other side dis-/re-connecting
+ * **IPC.NamedPipes.Basic** - bare minimum effort required to get two separate applications talking over named pipes
+ * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
 
 TODO
 ----
