@@ -13,6 +13,7 @@ namespace IPC.NamedPipes
         private NamedPipeServerStream pipeServer;
         private long counter = 0;
         private Timer timer;
+        private const bool THROTTLE_TIMER = false;
 
         public void Dispose()
         {            
@@ -45,22 +46,32 @@ namespace IPC.NamedPipes
         {
             Console.Write("Waiting...");
             pipeServer.WaitForConnection();
-            Console.WriteLine("...Connected!");            
+            Console.WriteLine("...Connected!");
 
-            timer = new Timer {
-                Interval = 1,
-            };
+            if (THROTTLE_TIMER)
+            {
+                timer = new Timer
+                {
+                    Interval = 1,
+                };
+                timer.Elapsed += (sender, args) => SendMessage();
+                timer.Start();
+            }
+            else
+            {
+                while(true)SendMessage();
+            }
 
-            timer.Elapsed += (sender, args) => { 
-                var message = counter++ + ": Ping! Time is " + DateTime.Now.ToLocalTime();
-                var messageBytes = Encoding.Unicode.GetBytes(message);
-                Console.WriteLine(message);
+        }      
 
-                pipeServer.Write(messageBytes, 0, messageBytes.Length);
-                pipeServer.WaitForPipeDrain();
-            };
+        private void SendMessage()
+        {
+            var message = counter++ + ": Ping! Time is " + DateTime.Now.ToLocalTime();
+            var messageBytes = Encoding.Unicode.GetBytes(message);
+            Console.WriteLine(message);
 
-            timer.Start();                      
+            pipeServer.Write(messageBytes, 0, messageBytes.Length);
+            pipeServer.WaitForPipeDrain();
         }
     }
 }

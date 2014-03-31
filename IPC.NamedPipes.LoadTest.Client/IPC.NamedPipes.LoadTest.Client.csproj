@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Server.cs" />
+    <Compile Include="Client.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj">

@@ -7,6 +7,9 @@ using System.Text;
 
 namespace IPC.NamedPipes
 {
+    /// <summary>
+    /// Testing performance under mild load and handling dropped connections
+    /// </summary>
     internal class Client : IDisposable
     {
         private NamedPipeClientStream pipeClient;
@@ -20,37 +23,54 @@ namespace IPC.NamedPipes
             }
         }
 
-        public Client()
-        {            
-            pipeClient = new NamedPipeClientStream(
-                "localhost",
-                Config.PipeName,
-                PipeDirection.InOut,
-                PipeOptions.None // TODO: options? async writethrough benefits?
-                );            
-        }
+        public Client() { }
 
         public void Run()
         {
-            Console.Write("Waiting...");
-            pipeClient.Connect(5000);
-            Console.WriteLine("...Connected!");
-
-            pipeClient.ReadMode = PipeTransmissionMode.Message;
-
             while (true)
             {
-                if (pipeClient.IsConnected) // && !pipeClient.IsMessageComplete
+                using(pipeClient = new NamedPipeClientStream(
+                    "localhost",
+                    Config.PipeName,
+                    PipeDirection.InOut,
+                    PipeOptions.None                    
+                    ))
                 {
-                    byte[] bResponse = new byte[Config.BufferSize];
-                    int cbResponse = bResponse.Length;
+                    try
+                    {
+                        Console.Write("Waiting for new connection...");
+                        pipeClient.Connect(5000);                        
+                        Console.WriteLine("...Connected!");
+                        pipeClient.ReadMode = PipeTransmissionMode.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("...timed out :(");
+                    }
+                    
+                    while (pipeClient.IsConnected)
+                    {
 
-                    int cbRead = pipeClient.Read(bResponse, 0, cbResponse);
+                        byte[] bResponse = new byte[Config.BufferSize];
+                        int cbResponse = bResponse.Length;
 
-                    var message = Encoding.Unicode.GetString(bResponse).TrimEnd('\0');
-                    Console.WriteLine(message);
+                        int cbRead = pipeClient.Read(bResponse, 0, cbResponse);
+
+                        var message = Encoding.Unicode.GetString(bResponse).TrimEnd('\0');
+                        Console.WriteLine(message);
+
+                    }
                 }
+                Console.WriteLine("Connection lost");
+                if (pipeClient != null)
+                {
+                    Console.WriteLine("Cleaning up pipe connection...");
+                    pipeClient.Close();
+                    pipeClient = null;
+                }
+
             }
+            
         }
     }
 }
