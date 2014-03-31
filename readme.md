@@ -40,12 +40,14 @@ NAudio
 
 + no additional dependencies / all managed code
 + more than good-enough performance
++ works with .Net Framework 2.0
 - very poor documentation; more discovery work than should be needed
 
 FmodSharp
 
 + much more feature-rich
 + better documentation via official Fmod SDK
+- requires .Net Framework 4.0
 - 'pull' event model more than offsets core performance benefits
 - typical non-managed code issues
 - additonal "fmodex.dll" dependency to be distributed
