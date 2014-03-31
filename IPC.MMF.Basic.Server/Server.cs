@@ -24,7 +24,7 @@ namespace IPC.MMF
             {
                 try
                 {
-                    using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
+                    using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
                     {
                         bool mutexCreated;
                         var mutex = new Mutex(true, "mmfservermutex", out mutexCreated);

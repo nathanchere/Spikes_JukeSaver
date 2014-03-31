@@ -21,12 +21,12 @@ namespace IPC.MMF
 
         public void Run()
         {
+            Console.WriteLine("Listening to mapped file " + Config.MAPPED_FILE_NAME);
             while (true)
-            {
+            {                
                 try
-                {
-                    Console.WriteLine("Listening to mapped file " + Config.MAPPED_FILE_NAME);
-                    using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
+                {                    
+                    using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
                     {
                         bool mutexCreated;
                         var mutex = new Mutex(true, "mmfclientmutex", out mutexCreated);
