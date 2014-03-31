@@ -13,7 +13,9 @@ Branch summary
 
 * Audio playback
  * **NAudio.Basic** - basic NAudio usage; loading and playing an MP3
- * **NAudio.SpectrumAnalyser** -how to apply FFT to samples to get simplified data for visualisation
+ * **NAudio.SpectrumAnalyser** - how to apply FFT to samples to get simplified data for visualisation
+ * **Fmod.Basic** - basic FmodSharp usage; loading and playing an MP3
+ * **Fmod.SpectrumAnalyser** - how to apply FFT to samples to get simplified data for visualisation
 * IPC
  * **IPC.NamedPipes.Basic** - bare minimum effort required to get two separate applications talking over named pipes
  * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
