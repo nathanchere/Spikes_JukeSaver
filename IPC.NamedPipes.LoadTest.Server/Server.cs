@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Net.Mime;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
@@ -14,7 +15,7 @@ namespace IPC.NamedPipes
         private NamedPipeServerStream pipeServer;
         private long counter = 0;
         private Timer timer;
-        private const bool THROTTLE_TIMER = false;
+        private const bool THROTTLE_TIMER = true;
         private const int THROTTLE_DELAY = 2000;
 
         public void Dispose()
@@ -63,14 +64,13 @@ namespace IPC.NamedPipes
                             };
                             timer.Elapsed += (sender, args) => SendMessage();
                             timer.Start();
+
+                            while(pipeServer.IsConnected);
+                            timer.Stop();
                         }
                         else
                         {
-                            while (true)
-                            {
-                                SendMessage();
-                                if(THROTTLE_DELAY > 0) Thread.Sleep(THROTTLE_DELAY);
-                            }
+                            while (true) SendMessage();
                         }
                     }
                     catch(Exception ex)
