@@ -46,13 +46,13 @@
     <Compile Include="Client.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj">
-      <Project>{cddee03d-a87f-43b8-b867-765c09a462f0}</Project>
-      <Name>IPC.NamedPipes.Basic.Server</Name>
-    </ProjectReference>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <ProjectReference Include="..\IPC.MMF.Basic.Server\IPC.MMF.Basic.Server.csproj">
+      <Project>{24d2188f-b186-410a-8e6a-c0044870ce57}</Project>
+      <Name>IPC.MMF.Basic.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
