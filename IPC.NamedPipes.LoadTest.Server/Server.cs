@@ -26,42 +26,62 @@ namespace IPC.NamedPipes
         }
 
         public Server()
-        {
-            var security = new PipeSecurity();
-            security.SetAccessRule(new PipeAccessRule("Administrators", PipeAccessRights.FullControl, AccessControlType.Allow)); // TODO: other options?
-            
-            pipeServer = new NamedPipeServerStream(
-                Config.PipeName,
-                PipeDirection.InOut, // TODO: single direction, benefits?
-                NamedPipeServerStream.MaxAllowedServerInstances,
-                PipeTransmissionMode.Message, // TODO: investigate other options
-                PipeOptions.None, // TODO: Async and writethrough, benefits?
-                Config.BufferSize, Config.BufferSize,
-                security,
-                HandleInheritability.None
-            );
+        {            
         }
 
         public void Run()
         {
-            Console.Write("Waiting...");
-            pipeServer.WaitForConnection();
-            Console.WriteLine("...Connected!");
-
-            if (THROTTLE_TIMER)
+            while (true)
             {
-                timer = new Timer
+                var security = new PipeSecurity();
+                security.SetAccessRule(new PipeAccessRule("Administrators", PipeAccessRights.FullControl, AccessControlType.Allow));
+
+                using (pipeServer = new NamedPipeServerStream(
+                    Config.PipeName,
+                    PipeDirection.InOut,
+                    NamedPipeServerStream.MaxAllowedServerInstances,
+                    PipeTransmissionMode.Message,
+                    PipeOptions.None,
+                    Config.BufferSize, Config.BufferSize,
+                    security,
+                    HandleInheritability.None
+                    ))
                 {
-                    Interval = 1,
-                };
-                timer.Elapsed += (sender, args) => SendMessage();
-                timer.Start();
-            }
-            else
-            {
-                while(true)SendMessage();
-            }
+                    try
+                    {
+                        Console.Write("Waiting...");
+                        pipeServer.WaitForConnection();
+                        Console.WriteLine("...Connected!");
 
+                        if (THROTTLE_TIMER)
+                        {
+                            timer = new Timer
+                            {
+                                Interval = 1,
+                            };
+                            timer.Elapsed += (sender, args) => SendMessage();
+                            timer.Start();
+                        }
+                        else
+                        {
+                            while(true)SendMessage();
+                        }
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Connection lost");
+                        if (pipeServer != null)
+                        {
+                            Console.WriteLine("Cleaning up pipe server...");
+                            pipeServer.Disconnect();
+                            pipeServer.Close();
+                            pipeServer = null;
+                        }
+                    }
+                    
+                }
+
+            }
         }      
 
         private void SendMessage()
