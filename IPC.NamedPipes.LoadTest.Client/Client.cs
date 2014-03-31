@@ -29,58 +29,59 @@ namespace IPC.NamedPipes
 
         public void Run()
         {
-            using (pipeClient = new NamedPipeClientStream(
-                "localhost",
-                Config.PipeName,
-                PipeDirection.InOut,
-                PipeOptions.None
-                ))
+            while (true)
             {
-
-                try
+                using (pipeClient = new NamedPipeClientStream(
+                    "localhost",
+                    Config.PipeName,
+                    PipeDirection.InOut,
+                    PipeOptions.None
+                    ))
                 {
-                    Console.Write("Waiting for new connection...");
-                    pipeClient.Connect(5000);
-                    Console.WriteLine("...Connected!");
-                    pipeClient.ReadMode = PipeTransmissionMode.Message;
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("...timed out :(");
-                }
-
-                try
-                {
-                    while (pipeClient.IsConnected)
+                    try
                     {
+                        Console.Write("Waiting for new connection...");
+                        pipeClient.Connect(5000);
+                        Console.WriteLine("...Connected!");
+                        pipeClient.ReadMode = PipeTransmissionMode.Message;
 
-                        byte[] bResponse = new byte[Config.BufferSize];
-                        int cbResponse = bResponse.Length;
-
-                        int cbRead = pipeClient.Read(bResponse, 0, cbResponse);
-
-                        var message = Encoding.Unicode.GetString(bResponse).TrimEnd('\0');
-                        Console.WriteLine(message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-                finally
-                {
-                    Console.WriteLine("Connection lost");
-                    if (pipeClient != null)
+                    catch (Exception ex)
                     {
-                        Console.WriteLine("Cleaning up pipe connection...");
-                        pipeClient.Close();
-                        pipeClient = null;
+                        Console.WriteLine("...timed out :(");
+                    }
+
+                    try
+                    {
+                        while (pipeClient.IsConnected)
+                        {
+
+                            byte[] bResponse = new byte[Config.BufferSize];
+                            int cbResponse = bResponse.Length;
+
+                            int cbRead = pipeClient.Read(bResponse, 0, cbResponse);
+
+                            var message = Encoding.Unicode.GetString(bResponse).TrimEnd('\0');
+                            Console.WriteLine(message);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Connection lost");
+                        if (pipeClient != null)
+                        {
+                            Console.WriteLine("Cleaning up pipe connection...");
+                            pipeClient.Close();
+                            pipeClient = null;
+                        }
                     }
                 }
             }
-
         }
     }
-
 }
