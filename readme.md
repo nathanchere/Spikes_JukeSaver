@@ -17,6 +17,7 @@ Branch summary
 * IPC
  * **IPC.NamedPipes.Basic** - bare minimum effort required to get two separate applications talking over named pipes
  * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
+ * **IPC.MMF.Basic** - bare minimum effort required to get two separate applications talking over memory mapped files
 
 TODO
 ----
