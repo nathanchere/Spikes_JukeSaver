@@ -22,6 +22,8 @@ namespace IPC.MMF
         public void Run()
         {
             Console.WriteLine("Listening to mapped file " + Config.MAPPED_FILE_NAME);
+            var mutexName = "mmfclientmutex" + (Guid.NewGuid());
+            Console.Title = mutexName;
             while (true)
             {                
                 try
@@ -29,7 +31,7 @@ namespace IPC.MMF
                     using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
                     {
                         bool mutexCreated;
-                        var mutex = new Mutex(true, "mmfclientmutex", out mutexCreated);
+                        var mutex = new Mutex(true, mutexName, out mutexCreated);
 
                         using (var stream = map.CreateViewStream())
                         {
