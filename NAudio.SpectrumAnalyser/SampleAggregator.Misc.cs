@@ -1,7 +1,6 @@
 ﻿// Shamelessly taken from NAudio.WPFDemo
 
 using System;
-using System.Diagnostics;
 using NAudio.Dsp;
 
 namespace NAudio.SpectrumAnalyser
