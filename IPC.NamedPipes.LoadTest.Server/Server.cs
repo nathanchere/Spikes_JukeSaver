@@ -4,7 +4,8 @@ using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
-using System.Timers;
+using System.Threading;
+using Timer = System.Timers.Timer;
 
 namespace IPC.NamedPipes
 {
@@ -14,6 +15,7 @@ namespace IPC.NamedPipes
         private long counter = 0;
         private Timer timer;
         private const bool THROTTLE_TIMER = false;
+        private const int THROTTLE_DELAY = 2000;
 
         public void Dispose()
         {            
@@ -57,14 +59,18 @@ namespace IPC.NamedPipes
                         {
                             timer = new Timer
                             {
-                                Interval = 1,
+                                Interval = THROTTLE_DELAY,
                             };
                             timer.Elapsed += (sender, args) => SendMessage();
                             timer.Start();
                         }
                         else
                         {
-                            while (true) SendMessage();
+                            while (true)
+                            {
+                                SendMessage();
+                                if(THROTTLE_DELAY > 0) Thread.Sleep(THROTTLE_DELAY);
+                            }
                         }
                     }
                     catch(Exception ex)
