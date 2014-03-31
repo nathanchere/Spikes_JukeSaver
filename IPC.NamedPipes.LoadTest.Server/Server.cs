@@ -65,7 +65,7 @@ namespace IPC.NamedPipes
                             timer.Elapsed += (sender, args) => SendMessage();
                             timer.Start();
 
-                            while(pipeServer.IsConnected);
+                            while(pipeServer.IsConnected)Thread.Sleep(1);
                             timer.Stop();
                         }
                         else
