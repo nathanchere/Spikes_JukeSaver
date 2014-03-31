@@ -22,28 +22,35 @@ namespace IPC.MMF
         public void Run()
         {
             while (true)
-            {                
-                Console.WriteLine("Listening to mapped file " + Config.MAPPED_FILE_NAME);
-                using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
-                {                    
-                    bool mutexCreated;
-                    var mutex = new Mutex(true, Config.MAPPED_FILE_NAME, out mutexCreated);
-
-                    using (var stream = map.CreateViewStream())
+            {
+                try
+                {
+                    Console.WriteLine("Listening to mapped file " + Config.MAPPED_FILE_NAME);
+                    using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
                     {
-                        var reader = new BinaryReader(stream);
-                        var message = reader.ReadString();
+                        bool mutexCreated;
+                        var mutex = new Mutex(true, "mmfclientmutex", out mutexCreated);
 
-                        if (!string.IsNullOrEmpty(message) &&
-                            !string.Equals(message, lastMessage))
+                        using (var stream = map.CreateViewStream())
                         {
-                            Console.WriteLine(message);
-                            lastMessage = message;
+                            var reader = new BinaryReader(stream);
+                            var message = reader.ReadString();
+
+                            if (!string.IsNullOrEmpty(message) &&
+                                !string.Equals(message, lastMessage))
+                            {
+                                Console.WriteLine(message);
+                                lastMessage = message;
+                            }
+
                         }
-                        
+                        mutex.ReleaseMutex();
+                        mutex.WaitOne();
                     }
-                    mutex.ReleaseMutex();
-                    mutex.WaitOne();                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
         }

@@ -22,20 +22,27 @@ namespace IPC.MMF
         {            
             while (true)
             {
-                using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
+                try
                 {
-                    bool mutexCreated;
-                    var mutex = new Mutex(true, Config.MAPPED_FILE_NAME, out mutexCreated);
-
-                    using (var stream = map.CreateViewStream())
+                    using (var map = MemoryMappedFile.CreateNew(Config.MAPPED_FILE_NAME, Config.BufferSize))
                     {
-                        var writer = new BinaryWriter(stream);
-                        var message = GetMessage();
-                        writer.Write(message);
-                        Console.WriteLine(message);
+                        bool mutexCreated;
+                        var mutex = new Mutex(true, "mmfservermutex", out mutexCreated);
+
+                        using (var stream = map.CreateViewStream())
+                        {
+                            var writer = new BinaryWriter(stream);
+                            var message = GetMessage();
+                            writer.Write(message);
+                            Console.WriteLine(message);
+                        }
+                        mutex.ReleaseMutex();
+                        mutex.WaitOne();
                     }
-                    mutex.ReleaseMutex();
-                    mutex.WaitOne();                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
         }
