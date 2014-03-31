@@ -95,12 +95,13 @@ namespace IPC.NamedPipes
 
         private void SendMessage()
         {
+            if(!pipeServer.IsConnected) return;
+
             var message = counter++ + ": Ping! Time is " + DateTime.Now.ToLocalTime();
             var messageBytes = Encoding.Unicode.GetBytes(message);
-            Console.WriteLine(message);
-
+            Console.WriteLine(message);            
             pipeServer.Write(messageBytes, 0, messageBytes.Length);
-            pipeServer.WaitForPipeDrain();
+            pipeServer.WaitForPipeDrain();            
         }
     }
 }
