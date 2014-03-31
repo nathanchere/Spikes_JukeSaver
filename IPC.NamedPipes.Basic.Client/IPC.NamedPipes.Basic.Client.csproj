@@ -45,9 +45,9 @@
     <Compile Include="Client.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPC.NamedPipes.LoadTest.Server\IPC.NamedPipes.LoadTest.Server.csproj">
-      <Project>{36ee791f-bfda-42ee-a1a2-1ba2f02f4ee9}</Project>
-      <Name>IPC.NamedPipes.LoadTest.Server</Name>
+    <ProjectReference Include="..\IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj">
+      <Project>{cddee03d-a87f-43b8-b867-765c09a462f0}</Project>
+      <Name>IPC.NamedPipes.Basic.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
