@@ -64,12 +64,15 @@ namespace IPC.NamedPipes
                         }
                         else
                         {
-                            while(true)SendMessage();
+                            while (true) SendMessage();
                         }
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
                     }
                     finally
                     {
-                        Console.WriteLine("Connection lost");
                         if (pipeServer != null)
                         {
                             Console.WriteLine("Cleaning up pipe server...");
@@ -78,7 +81,7 @@ namespace IPC.NamedPipes
                             pipeServer = null;
                         }
                     }
-                    
+
                 }
 
             }
