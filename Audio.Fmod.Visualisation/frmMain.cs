@@ -18,6 +18,8 @@ namespace nFMOD.Demo.SpectrumAnalysis
             fmod = new FmodSystem();
             fmod.Init();
 
+            numSpectrumDetail_ValueChanged(null,null);
+
             var timer = new Timer();
             timer.Interval = 33; // approx 30FPS
             timer.Tick += (sender, args) => Render();
@@ -61,12 +63,21 @@ namespace nFMOD.Demo.SpectrumAnalysis
 
         ~frmMain()
         {
-            if (channel != null)
-                channel.Close();
             if (sound != null)
+            {
                 sound.Close();
+                sound.Dispose();
+            }
+            if (channel != null)
+            {
+                channel.Close();
+                channel.Dispose();
+            }
             if (fmod != null)
+            {
                 fmod.Close();
+                fmod.Dispose();
+            }
         }
 
         private void numSpectrumDetail_ValueChanged(object sender, EventArgs e)
