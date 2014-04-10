@@ -64,11 +64,11 @@ namespace nFMOD.Demo.SpectrumAnalysis
                 float y = Height / 2 + (value*Height*0.5f);
                 float R = (128 + (value * 128));
                 float G = (int)(255 / Width * x);
-                float B = (int)(DateTime.Now.Millisecond * 0.15);
-                float height = (2 + value*2) * 7;
+                float B = (int)(DateTime.Now.Millisecond * 0.15);                
+                float height = (1 - (float)Math.Pow(1-Math.Abs(value),5)) * 30;
 
                 var brush = new SolidBrush(Color.FromArgb((int)R,(int)G,(int)B));
-                g.FillEllipse(brush, x, y - height * 0.5f, 5, height);
+                g.FillEllipse(brush, x - 2.5f, y - height * 0.5f, 5, height);
             }
         }
 
