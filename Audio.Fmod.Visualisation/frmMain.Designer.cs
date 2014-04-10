@@ -35,6 +35,7 @@
             this.numSpectrumDetail = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblSpectrum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picVisualisation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaveDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSpectrumDetail)).BeginInit();
@@ -73,14 +74,14 @@
             // 
             // numWaveDetail
             // 
-            this.numWaveDetail.Location = new System.Drawing.Point(467, 301);
+            this.numWaveDetail.Location = new System.Drawing.Point(411, 301);
             this.numWaveDetail.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.numWaveDetail.Name = "numWaveDetail";
-            this.numWaveDetail.Size = new System.Drawing.Size(59, 20);
+            this.numWaveDetail.Size = new System.Drawing.Size(56, 20);
             this.numWaveDetail.TabIndex = 3;
             this.numWaveDetail.Value = new decimal(new int[] {
             256,
@@ -90,25 +91,26 @@
             // 
             // numSpectrumDetail
             // 
-            this.numSpectrumDetail.Location = new System.Drawing.Point(467, 278);
+            this.numSpectrumDetail.Location = new System.Drawing.Point(411, 278);
             this.numSpectrumDetail.Maximum = new decimal(new int[] {
-            65535,
+            32,
             0,
             0,
             0});
             this.numSpectrumDetail.Name = "numSpectrumDetail";
-            this.numSpectrumDetail.Size = new System.Drawing.Size(59, 20);
+            this.numSpectrumDetail.Size = new System.Drawing.Size(56, 20);
             this.numSpectrumDetail.TabIndex = 4;
             this.numSpectrumDetail.Value = new decimal(new int[] {
-            512,
+            5,
             0,
             0,
             0});
+            this.numSpectrumDetail.ValueChanged += new System.EventHandler(this.numSpectrumDetail_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(365, 280);
+            this.label1.Location = new System.Drawing.Point(309, 280);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 5;
@@ -117,17 +119,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(365, 303);
+            this.label2.Location = new System.Drawing.Point(309, 303);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Wave resolution";
+            // 
+            // lblSpectrum
+            // 
+            this.lblSpectrum.AutoSize = true;
+            this.lblSpectrum.Location = new System.Drawing.Point(473, 280);
+            this.lblSpectrum.Name = "lblSpectrum";
+            this.lblSpectrum.Size = new System.Drawing.Size(19, 13);
+            this.lblSpectrum.TabIndex = 7;
+            this.lblSpectrum.Text = "(0)";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 330);
+            this.Controls.Add(this.lblSpectrum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numSpectrumDetail);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.NumericUpDown numSpectrumDetail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSpectrum;
     }
 }
 

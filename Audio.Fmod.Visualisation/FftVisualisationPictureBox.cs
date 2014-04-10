@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace nFMOD.Demo.SpectrumAnalysis
 {
@@ -27,6 +28,7 @@ namespace nFMOD.Demo.SpectrumAnalysis
 
         private void DrawSpectrum(Graphics g)
         {
+            const int offset = 20;
             float barWidth = Width / _data.WaveData.Count;
             for (int i = 0; i < _data.SpectrumData.Count; i++)
             {                
@@ -34,12 +36,13 @@ namespace nFMOD.Demo.SpectrumAnalysis
 
                 float x = i * barWidth;
                 float y = (value*Height*0.5f);
-                float R = (128 + (value * 128));
-                float G = (int)(255 / Width * x);
-                float B = (int)(DateTime.Now.Millisecond * 0.15);
+                float G = (128 + (value * 128));
+                float B = (int)(255 / Width * x);
+                float R = (int)(DateTime.Now.Millisecond * 0.15);
 
                 var brush = new SolidBrush(Color.FromArgb((int)R,(int)G,(int)B));
-                g.FillRectangle(brush, x, 200, barWidth, y);
+                g.FillRectangle(brush, x, Height / 2 + offset, barWidth, y);
+                g.FillRectangle(brush, x, Height / 2 - offset - y, barWidth, y);
             }            
         }
 

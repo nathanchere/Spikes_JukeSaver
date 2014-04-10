@@ -31,7 +31,7 @@ namespace nFMOD.Demo.SpectrumAnalysis
                 )
                 return;
            
-            int spectrumSize = (int)numSpectrumDetail.Value;
+            int spectrumSize = (int)Math.Pow(2,(double) numSpectrumDetail.Value);
             int waveSize = (int)numWaveDetail.Value;
 
             var spectrum = new float[spectrumSize];
@@ -67,6 +67,11 @@ namespace nFMOD.Demo.SpectrumAnalysis
                 sound.Close();
             if (fmod != null)
                 fmod.Close();
+        }
+
+        private void numSpectrumDetail_ValueChanged(object sender, EventArgs e)
+        {
+            lblSpectrum.Text = string.Format("({0})", Math.Pow(2,(double) numSpectrumDetail.Value));
         }
     }
 }
