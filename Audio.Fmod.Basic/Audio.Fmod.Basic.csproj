@@ -50,10 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Resources\doowackadoo.mp3">
+    <None Include="..\Resources\doowackadoo.mp3">
       <Link>doowackadoo.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="..\Resources\fmodex.dll">
       <Link>fmodex.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
