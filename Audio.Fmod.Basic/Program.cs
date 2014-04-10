@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using FmodSharp = Linsft.FmodSharp;
+using nFMOD;
 
 namespace Audio.Fmod.Basic
 {
@@ -16,7 +16,7 @@ namespace Audio.Fmod.Basic
                 a.Cancel = true;
             };
 
-            using (var fmod = new FmodSharp.SoundSystem.SoundSystem())
+            using (var fmod = new FmodSystem())
             {
                 fmod.Init();
 
@@ -24,7 +24,7 @@ namespace Audio.Fmod.Basic
                 {
                     fmod.PlaySound(audio);
 
-                    Console.WriteLine("FmodSharp test\nPlaying doowackadoo; Ctrl+C to quit");
+                    Console.WriteLine("nFMOD test\nPlaying doowackadoo; Ctrl+C to quit");
                     quit.WaitOne();
                 }
                 fmod.CloseSystem();
