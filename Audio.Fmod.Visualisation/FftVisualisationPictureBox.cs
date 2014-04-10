@@ -28,8 +28,8 @@ namespace nFMOD.Demo.SpectrumAnalysis
 
         private void DrawSpectrum(Graphics g)
         {
-            const int offset = 20;
-            float barWidth = Width / _data.WaveData.Count;
+            const int offset = 20;            
+            float barWidth = Width / _data.SpectrumData.Count;
             for (int i = 0; i < _data.SpectrumData.Count; i++)
             {                
                 var value = Math.Abs(_data.SpectrumData[i]); // value should always be between 0 : 1.0
