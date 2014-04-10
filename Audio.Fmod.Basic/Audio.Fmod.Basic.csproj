@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nFMOD">
+    <Reference Include="nFMOD, Version=1.0.5213.29336, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\nFMOD.0.5\lib\net20\nFMOD.dll</HintPath>
     </Reference>
     <Reference Include="System" />
