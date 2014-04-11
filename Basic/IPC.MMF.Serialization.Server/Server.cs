@@ -67,7 +67,7 @@ namespace IPC.MMF
                     var serializer = new BinaryFormatter();
                     serializer.Serialize(stream, message);                    
                     Console.WriteLine(message.ToString());
-                }                                
+                }                                       
                 _mutex.WaitOne(0, true);
                 _mutex.ReleaseMutex();
                 _mutex.Close();
@@ -86,6 +86,7 @@ namespace IPC.MMF
                 Timestamp = DateTime.Now,
                 Samples = samples,
                 Message = "Tick!",
+                Guid = Guid.NewGuid(),
 
             };
         }

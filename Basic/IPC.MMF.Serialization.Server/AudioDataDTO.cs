@@ -10,6 +10,7 @@ namespace IPC.MMF
         public IList<float> Samples { get; set; }
         public string Message { get; set; }
         public DateTime Timestamp { get; set; }
+        public Guid Guid { get; set; }
 
         public override string ToString()
         {
