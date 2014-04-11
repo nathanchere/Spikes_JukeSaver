@@ -83,9 +83,9 @@ TODO: memory mapped files to pass audio analysis data between server/client
 
 ## Misc references
 
-[IPC via named pipes](http://msdn.microsoft.com/en-us/library/bb546085(v=vs.110).aspx)
-[IPC via memory mapped files](http://code.msdn.microsoft.com/windowsdesktop/Inter-process-communication-e96e94e7)
-[NAudio documentation](http://naudio.codeplex.com/documentation)
-[FMOD wrapper: FMODSharp](https://gitorious.org/fmodsharp)
-[FMOD wrapper: nFMOD](https://github.com/nathanchere/nFMOD)
-[SFML official tutorials (for 2.1)](http://www.sfml-dev.org/tutorials/2.1)
+* [IPC via named pipes](http://msdn.microsoft.com/en-us/library/bb546085(v=vs.110).aspx)
+* [IPC via memory mapped files](http://code.msdn.microsoft.com/windowsdesktop/Inter-process-communication-e96e94e7)
+* [NAudio documentation](http://naudio.codeplex.com/documentation)
+* [FMOD wrapper: FMODSharp](https://gitorious.org/fmodsharp)
+* [FMOD wrapper: nFMOD](https://github.com/nathanchere/nFMOD)
+* [SFML official tutorials (for 2.1)](http://www.sfml-dev.org/tutorials/2.1)
