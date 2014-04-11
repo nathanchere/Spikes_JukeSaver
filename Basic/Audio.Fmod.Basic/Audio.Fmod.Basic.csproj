@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="nFMOD, Version=1.0.5213.29336, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\nFMOD.0.5\lib\net20\nFMOD.dll</HintPath>
+      <HintPath>..\..\packages\nFMOD.0.5\lib\net20\nFMOD.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,11 +51,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\doowackadoo.mp3">
+    <None Include="..\..\Resources\doowackadoo.mp3">
       <Link>doowackadoo.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Resources\fmodex.dll">
+    <None Include="..\..\Resources\fmodex.dll">
       <Link>fmodex.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -1,21 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Audio Playback", "1. Audio Playback", "{8C53FABF-9558-42C8-89F8-6BDD93369126}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Audio Playback", "Audio Playback", "{8C53FABF-9558-42C8-89F8-6BDD93369126}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. IPC", "1. IPC", "{844287EE-A1A9-4CD7-871D-4B87AD9EA4F9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IPC", "IPC", "{844287EE-A1A9-4CD7-871D-4B87AD9EA4F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{E1438D5D-1C1E-44C5-875B-BBA18ECDF73E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Basic.Client", "IPC.NamedPipes.Basic.Client\IPC.NamedPipes.Basic.Client.csproj", "{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Basic.Client", "Basic\IPC.NamedPipes.Basic.Client\IPC.NamedPipes.Basic.Client.csproj", "{6DDC9001-A6D2-4E65-8DB0-DF9CD47A96A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Basic.Server", "IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj", "{CDDEE03D-A87F-43B8-B867-765C09A462F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.Basic.Server", "Basic\IPC.NamedPipes.Basic.Server\IPC.NamedPipes.Basic.Server.csproj", "{CDDEE03D-A87F-43B8-B867-765C09A462F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadTest", "LoadTest", "{1C6BE043-4C97-4BCD-8FC5-9076E4094EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.LoadTest.Client", "IPC.NamedPipes.LoadTest.Client\IPC.NamedPipes.LoadTest.Client.csproj", "{52F85A88-66C4-42A5-B48A-F609F732B2C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.LoadTest.Client", "Basic\IPC.NamedPipes.LoadTest.Client\IPC.NamedPipes.LoadTest.Client.csproj", "{52F85A88-66C4-42A5-B48A-F609F732B2C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.LoadTest.Server", "IPC.NamedPipes.LoadTest.Server\IPC.NamedPipes.LoadTest.Server.csproj", "{36EE791F-BFDA-42EE-A1A2-1BA2F02F4EE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.NamedPipes.LoadTest.Server", "Basic\IPC.NamedPipes.LoadTest.Server\IPC.NamedPipes.LoadTest.Server.csproj", "{36EE791F-BFDA-42EE-A1A2-1BA2F02F4EE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Named Pipes", "Named Pipes", "{6D871A49-A37E-4364-AA70-2BEC88E683BF}"
 EndProject
@@ -23,27 +23,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Memory-Mapped Files", "Memo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{CA1F137E-9F6A-48F1-ABE9-80324960AF39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.MMF.Basic.Server", "IPC.MMF.Basic.Server\IPC.MMF.Basic.Server.csproj", "{24D2188F-B186-410A-8E6A-C0044870CE57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.MMF.Basic.Server", "Basic\IPC.MMF.Basic.Server\IPC.MMF.Basic.Server.csproj", "{24D2188F-B186-410A-8E6A-C0044870CE57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.MMF.Basic.Client", "IPC.MMF.Basic.Client\IPC.MMF.Basic.Client.csproj", "{43F2560B-3B1A-4070-8F05-01926CD99542}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPC.MMF.Basic.Client", "Basic\IPC.MMF.Basic.Client\IPC.MMF.Basic.Client.csproj", "{43F2560B-3B1A-4070-8F05-01926CD99542}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NAudio", "NAudio", "{FCD08CC0-0C98-47D6-B92C-7B1C9184EEAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.Basic", "Audio.NAudio.Basic\Audio.NAudio.Basic.csproj", "{B946AA38-3B75-45AF-96F0-5C9A63B3F517}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.Basic", "Basic\Audio.NAudio.Basic\Audio.NAudio.Basic.csproj", "{B946AA38-3B75-45AF-96F0-5C9A63B3F517}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.SpectrumAnalyser", "Audio.NAudio.SpectrumAnalyser\Audio.NAudio.SpectrumAnalyser.csproj", "{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.SpectrumAnalyser", "Basic\Audio.NAudio.SpectrumAnalyser\Audio.NAudio.SpectrumAnalyser.csproj", "{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FmodSharp", "FmodSharp", "{140DFE06-B00F-4C8D-928F-0E894BBFAABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Fmod.Basic", "Audio.Fmod.Basic\Audio.Fmod.Basic.csproj", "{427940F7-ACEB-4B2C-897C-40EF816C1952}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Fmod.Basic", "Basic\Audio.Fmod.Basic\Audio.Fmod.Basic.csproj", "{427940F7-ACEB-4B2C-897C-40EF816C1952}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Fmod.Visualisation", "Audio.Fmod.Visualisation\Audio.Fmod.Visualisation.csproj", "{5071B2EE-2AEF-4391-8734-A8CEA39014E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Fmod.Visualisation", "Basic\Audio.Fmod.Visualisation\Audio.Fmod.Visualisation.csproj", "{5071B2EE-2AEF-4391-8734-A8CEA39014E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFX.SFML.Basic", "GFX.SFML.Basic\GFX.SFML.Basic.csproj", "{518695B2-F450-4CC1-9E8F-DDCE94C3DEF9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Graphics", "Graphics", "{33BD5299-25CF-4923-A3F1-7B9769528320}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Graphics", "1. Graphics", "{33BD5299-25CF-4923-A3F1-7B9769528320}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{4F84F241-90B7-4898-B737-51E0ED44305F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Integration", "2. Integration", "{4F84F241-90B7-4898-B737-51E0ED44305F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GFX.SFML.Basic", "Basic\GFX.SFML.Basic\GFX.SFML.Basic.csproj", "{518695B2-F450-4CC1-9E8F-DDCE94C3DEF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basic", "Basic", "{5F612E35-E864-4B42-9925-F94700A3E54A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -188,5 +190,8 @@ Global
 		{427940F7-ACEB-4B2C-897C-40EF816C1952} = {140DFE06-B00F-4C8D-928F-0E894BBFAABF}
 		{5071B2EE-2AEF-4391-8734-A8CEA39014E8} = {140DFE06-B00F-4C8D-928F-0E894BBFAABF}
 		{518695B2-F450-4CC1-9E8F-DDCE94C3DEF9} = {33BD5299-25CF-4923-A3F1-7B9769528320}
+		{8C53FABF-9558-42C8-89F8-6BDD93369126} = {5F612E35-E864-4B42-9925-F94700A3E54A}
+		{33BD5299-25CF-4923-A3F1-7B9769528320} = {5F612E35-E864-4B42-9925-F94700A3E54A}
+		{844287EE-A1A9-4CD7-871D-4B87AD9EA4F9} = {5F612E35-E864-4B42-9925-F94700A3E54A}
 	EndGlobalSection
 EndGlobal

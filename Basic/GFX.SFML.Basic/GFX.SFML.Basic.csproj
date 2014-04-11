@@ -40,15 +40,15 @@
   <ItemGroup>
     <Reference Include="sfmlnet-audio-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-audio-2.dll</HintPath>
+      <HintPath>..\..\Resources\SFMLNet\x86\sfmlnet-audio-2.dll</HintPath>
     </Reference>
     <Reference Include="sfmlnet-graphics-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-graphics-2.dll</HintPath>
+      <HintPath>..\..\Resources\SFMLNet\x86\sfmlnet-graphics-2.dll</HintPath>
     </Reference>
     <Reference Include="sfmlnet-window-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-window-2.dll</HintPath>
+      <HintPath>..\..\Resources\SFMLNet\x86\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -58,23 +58,23 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\SFMLNet\x86\csfml-audio-2.dll">
+    <None Include="..\..\Resources\SFMLNet\x86\csfml-audio-2.dll">
       <Link>csfml-audio-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Resources\SFMLNet\x86\csfml-graphics-2.dll">
+    <None Include="..\..\Resources\SFMLNet\x86\csfml-graphics-2.dll">
       <Link>csfml-graphics-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Resources\SFMLNet\x86\csfml-window-2.dll">
+    <None Include="..\..\Resources\SFMLNet\x86\csfml-window-2.dll">
       <Link>csfml-window-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Resources\SFMLNet\x86\libsndfile-1.dll">
+    <None Include="..\..\Resources\SFMLNet\x86\libsndfile-1.dll">
       <Link>libsndfile-1.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\Resources\SFMLNet\x86\openal32.dll">
+    <None Include="..\..\Resources\SFMLNet\x86\openal32.dll">
       <Link>openal32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
