@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using Timer = System.Timers.Timer;
 
@@ -32,7 +33,7 @@ namespace IPC.MMF
         {
             _random = new Random();
             _timer = new Timer();
-            _map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize);            
+            _map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize);
         }
 
         public void Run()
@@ -48,11 +49,13 @@ namespace IPC.MMF
                 bool mutexCreated;
                 var mutex = new Mutex(true, "mmfservermutex", out mutexCreated);
 
-                using (var stream = _map.CreateViewStream()) {
-                    var writer = new BinaryWriter(stream);
+                using (var stream = _map.CreateViewStream()) {                    
                     var message = GetMessage();
-                    writer.Write(message);
-                    Console.WriteLine(message);
+
+                    var serializer = new BinaryFormatter();
+                    serializer.Serialize(stream, message);
+
+                    Console.WriteLine(message.ToString());
                 }
                 mutex.ReleaseMutex();
                 mutex.WaitOne();
@@ -62,12 +65,12 @@ namespace IPC.MMF
         }
 
         private AudioDataDTO GetMessage()
-        {           
+        {
             var samples = new List<float>();
-            for(int i = 0;i<10;i++) samples.Add((float)_random.NextDouble());
+            for (int i = 0; i < 10; i++)
+                samples.Add((float)_random.NextDouble());
 
-            return new AudioDataDTO
-            {
+            return new AudioDataDTO {
                 Timestamp = DateTime.Now,
                 Samples = samples,
                 Message = "Tick!",
