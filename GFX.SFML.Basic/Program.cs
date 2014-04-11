@@ -12,8 +12,8 @@ namespace StarterKits.SFMLDotNet
             var window = new RenderWindow(new VideoMode(640, 480), "JukeSaver spike: SFML Basic", Styles.Default, contextSettings);
             window.SetActive();
 
-            window.Closed += new EventHandler(OnClosed);
-            window.KeyPressed += new EventHandler<KeyEventArgs>(OnKeyPressed);
+            window.Closed += OnClosed;
+            window.KeyPressed += OnKeyPressed;
 
             int r=0,g=0,b=0;
             
