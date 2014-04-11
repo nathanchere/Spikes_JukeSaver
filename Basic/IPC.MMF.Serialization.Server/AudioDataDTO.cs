@@ -4,6 +4,7 @@ using System.Text;
 
 namespace IPC.MMF
 {
+    [Serializable]
     public class AudioDataDTO
     {
         public IList<float> Samples { get; set; }
