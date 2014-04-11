@@ -71,7 +71,8 @@ TODO: memory mapped files to pass audio analysis data between server/client
 
 ### Memory-mapped files
 + Very easy to get a basic example running
-+ Extremely robust - restarting both server and client does not cause errors for the other side, multiple clients 
++ Extremely robust - restarting both server and client does not cause errors for the other side, multiple clients work fine, multiple servers fine with a little extra work
++ Extremely fast - talking end-to-end times of an average for 2-5 milliseconds for the initial message and well under a tenth of a millisecond for subsequent messages.
 
 ### SFML.Net
 + Very stable wrapper library
