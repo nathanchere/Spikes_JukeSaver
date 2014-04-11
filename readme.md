@@ -19,7 +19,8 @@ master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l
 * IPC
  * **IPC.NamedPipes.Basic** - bare minimum effort required to get two separate applications talking over named pipes
  * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
- * **IPC.MMF.Basic** - bare minimum effort required to get two separate applications talking over memory mapped files
+ * **IPC.MMF.Basic** - bare minimum effort required to get two separate applications talking over memory 
+ * **IPC.MMF.Serialization** - sending/receiving CLR objects over memory-mapped files
 * Graphics
  * **GFX.SFML.Basic** - basic window and drawing a circle on screen
 
