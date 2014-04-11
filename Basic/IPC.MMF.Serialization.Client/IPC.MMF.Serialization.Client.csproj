@@ -49,9 +49,9 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IPC.MMF.Basic.Server\IPC.MMF.Basic.Server.csproj">
-      <Project>{24d2188f-b186-410a-8e6a-c0044870ce57}</Project>
-      <Name>IPC.MMF.Basic.Server</Name>
+    <ProjectReference Include="..\IPC.MMF.Serialization.Server\IPC.MMF.Serialization.Server.csproj">
+      <Project>{10ea7a6a-553c-4e70-88f0-f63114f9c907}</Project>
+      <Name>IPC.MMF.Serialization.Server</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
