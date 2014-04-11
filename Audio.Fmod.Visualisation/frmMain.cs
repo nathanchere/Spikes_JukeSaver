@@ -21,7 +21,7 @@ namespace nFMOD.Demo.SpectrumAnalysis
             numSpectrumDetail_ValueChanged(null,null);
 
             var timer = new Timer();
-            timer.Interval = 33; // approx 30FPS
+            timer.Interval = 1000 / 60; // second number = desired FPS
             timer.Tick += (sender, args) => Render();
             timer.Start();
         }
