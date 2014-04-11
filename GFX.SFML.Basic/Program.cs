@@ -9,7 +9,7 @@ namespace StarterKits.SFMLDotNet
         private static void Main(string[] args)
         {
             var contextSettings = new ContextSettings { DepthBits = 32 };
-            var window = new RenderWindow(new VideoMode(640, 480), "SFML.Net starter kit", Styles.Default, contextSettings);
+            var window = new RenderWindow(new VideoMode(640, 480), "JukeSaver spike: SFML Basic", Styles.Default, contextSettings);
             window.SetActive();
 
             window.Closed += new EventHandler(OnClosed);
