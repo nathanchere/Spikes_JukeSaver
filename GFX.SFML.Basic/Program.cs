@@ -6,6 +6,8 @@ namespace StarterKits.SFMLDotNet
 {
     public static class Program
     {
+        const float pulseModifier = (float)Math.PI * 0.002f; // To convert a vealue from 0-1000 to a smooth 'pulse'
+
         private static void Main(string[] args)
         {
             var contextSettings = new ContextSettings {
@@ -18,8 +20,6 @@ namespace StarterKits.SFMLDotNet
             window.KeyPressed += OnKeyPressed;
 
             int r = 0, g = 0, b = 0;
-
-            const float pulseModifier = (float)Math.PI * 0.002f; // To convert a vealue from 0-1000 to a smooth 'pulse'
             var shape = new CircleShape() {
                 Position = new Vector2f(320, 240),
             };
@@ -28,10 +28,21 @@ namespace StarterKits.SFMLDotNet
                 window.DispatchEvents();
                 window.Clear(new Color((byte)r, (byte)g, (byte)b));
 
-                shape.Radius = 50 + Math.Abs(pulseModifier * DateTime.Now.Millisecond) * 100;
+                shape.Radius = (float)(80.0 + GetPulse() * 40.0);
+                shape.Origin = new Vector2f(shape.Radius * 0.5f, shape.Radius * 0.5f);
+                shape.Position = new Vector2f(320 - shape.Radius * 0.5f, 240 - shape.Radius * 0.5f);
 
+                shape.FillColor = new Color(50, (byte)(160 + 80 * GetPulse()), (byte)(40 - (40 * GetPulse())));
+
+                window.Draw(shape);
                 window.Display();
             }
+        }
+
+        private static double GetPulse()
+        {
+            var tick = DateTime.Now.Millisecond;
+            return Math.Sin(pulseModifier * tick);
         }
 
         static void OnClosed(object sender, EventArgs e)
