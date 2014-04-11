@@ -16,6 +16,7 @@ namespace IPC.MMF
         private MemoryMappedFile _map;
         private Timer _timer;
         private Random _random;
+        Mutex _mutex;
 
         public void Dispose()
         {
@@ -47,18 +48,23 @@ namespace IPC.MMF
         {
             try {
                 bool mutexCreated;
-                var mutex = new Mutex(true, "mmfservermutex", out mutexCreated);
+                _mutex = new Mutex(true, "mmfservermutex", out mutexCreated);                
+                if (mutexCreated == false) {
+                    Console.WriteLine("Could not create mutex; broadcast cancelled");
+                    return;
+                }
 
-                using (var stream = _map.CreateViewStream()) {                    
+                using (var stream = _map.CreateViewStream()) {
                     var message = GetMessage();
 
                     var serializer = new BinaryFormatter();
                     serializer.Serialize(stream, message);
 
                     Console.WriteLine(message.ToString());
-                }
-                mutex.ReleaseMutex();
-                mutex.WaitOne();
+                }                                
+                _mutex.WaitOne(0, true);
+                _mutex.ReleaseMutex();
+                _mutex.Close();
             } catch (Exception ex) {
                 Console.WriteLine("Error: " + ex.Message);
             }

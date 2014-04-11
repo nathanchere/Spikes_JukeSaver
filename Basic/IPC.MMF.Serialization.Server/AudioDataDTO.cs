@@ -13,7 +13,7 @@ namespace IPC.MMF
 
         public override string ToString()
         {
-            var result = new StringBuilder(' ');
+            var result = new StringBuilder();
             foreach (var value in Samples) result.Append(value.ToString("0.00 "));
             return string.Format("{0}:{1:00}:{2:00}.{3:000}: {4} [{5}]",
                 Timestamp.Hour,
@@ -21,7 +21,7 @@ namespace IPC.MMF
                 Timestamp.Second,
                 Timestamp.Millisecond,
                 Message,
-                Samples
+                result.ToString().Trim()
                 );
         }
     }
