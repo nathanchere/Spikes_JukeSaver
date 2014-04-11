@@ -2,7 +2,7 @@
 using SFML.Graphics;
 using SFML.Window;
 
-namespace StarterKits.SFMLDotNet
+namespace GFX.SFML.Basic
 {
     public static class Program
     {
