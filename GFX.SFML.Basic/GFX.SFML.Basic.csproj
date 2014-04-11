@@ -8,8 +8,8 @@
     <ProjectGuid>{518695B2-F450-4CC1-9E8F-DDCE94C3DEF9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StarterKits.SFMLDotNet</RootNamespace>
-    <AssemblyName>StarterKits.SFMLDotNet</AssemblyName>
+    <RootNamespace>GFX.SFML.Basic</RootNamespace>
+    <AssemblyName>GFX.SFML.Basic</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -38,14 +38,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="sfmlnet-audio-2">
-      <HintPath>..\Lib\x86\sfmlnet-audio-2.dll</HintPath>
+    <Reference Include="sfmlnet-audio-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-audio-2.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-graphics-2">
-      <HintPath>..\Lib\x86\sfmlnet-graphics-2.dll</HintPath>
+    <Reference Include="sfmlnet-graphics-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-graphics-2.dll</HintPath>
     </Reference>
-    <Reference Include="sfmlnet-window-2">
-      <HintPath>..\Lib\x86\sfmlnet-window-2.dll</HintPath>
+    <Reference Include="sfmlnet-window-2, Version=2.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Resources\SFMLNet\x86\sfmlnet-window-2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -53,26 +56,26 @@
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Lib\x86\csfml-audio-2.dll">
+    <None Include="..\Resources\SFMLNet\x86\csfml-audio-2.dll">
       <Link>csfml-audio-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Lib\x86\csfml-graphics-2.dll">
+    </None>
+    <None Include="..\Resources\SFMLNet\x86\csfml-graphics-2.dll">
       <Link>csfml-graphics-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Lib\x86\csfml-window-2.dll">
+    </None>
+    <None Include="..\Resources\SFMLNet\x86\csfml-window-2.dll">
       <Link>csfml-window-2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Lib\x86\libsndfile-1.dll">
+    </None>
+    <None Include="..\Resources\SFMLNet\x86\libsndfile-1.dll">
       <Link>libsndfile-1.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\Lib\x86\openal32.dll">
+    </None>
+    <None Include="..\Resources\SFMLNet\x86\openal32.dll">
       <Link>openal32.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
