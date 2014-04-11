@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.MemoryMappedFiles;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
 namespace IPC.MMF
@@ -34,20 +35,21 @@ namespace IPC.MMF
                         var mutex = new Mutex(true, mutexName, out mutexCreated);
 
                         using (var stream = map.CreateViewStream())
-                        {
-                            var reader = new BinaryReader(stream);
-                            var message = reader.ReadString();
+                        {                            
+                            var timestamp = DateTime.Now;
 
-                            if (!string.IsNullOrEmpty(message) &&
-                                !string.Equals(message, lastMessage))
-                            {
-                                Console.WriteLine(message);
-                                lastMessage = message;
-                            }
-
+                            var serializer = new BinaryFormatter();
+                            var result = serializer.Deserialize(stream) as AudioDataDTO;
+                            if(result==null) continue;
+                            
+                            var diff = timestamp - result.Timestamp;
+                            Console.WriteLine("Message in; delay: " + diff.TotalMilliseconds);
+                            Console.WriteLine(result.ToString());
+                            //stream.Flush();
                         }
                         mutex.ReleaseMutex();
                         mutex.WaitOne();
+                        mutex.Close();
                     }
                 }
                 catch (Exception ex)

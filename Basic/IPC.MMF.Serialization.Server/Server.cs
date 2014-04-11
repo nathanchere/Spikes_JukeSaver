@@ -20,14 +20,21 @@ namespace IPC.MMF
 
         public void Dispose()
         {
+            Console.WriteLine("Server disposing...");
             if (_timer != null) {
                 _timer.Stop();
                 _timer = null;
             }
+
+            if (_mutex != null)
+            {                
+                _mutex.Dispose();                
+            }
+
             if (_map != null) {
                 _map.Dispose();
                 _map = null;
-            }
+            }            
         }
 
         public Server()
@@ -58,8 +65,7 @@ namespace IPC.MMF
                     var message = GetMessage();
 
                     var serializer = new BinaryFormatter();
-                    serializer.Serialize(stream, message);
-
+                    serializer.Serialize(stream, message);                    
                     Console.WriteLine(message.ToString());
                 }                                
                 _mutex.WaitOne(0, true);
