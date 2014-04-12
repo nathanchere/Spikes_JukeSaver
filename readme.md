@@ -2,10 +2,7 @@
 
 Not intended for public consumption. Just some preliminary feeler work for an as-yet vaporware music player and screensaver package.
 
-## Branch status
-
-
-master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/master)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
+**Build status**: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l/branch/master)](https://ci.appveyor.com/project/nathanchere/spike-jukesaver)
 
 ## Spike summary 
 
