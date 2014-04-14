@@ -56,7 +56,8 @@ namespace IPC.MMF
             try {
                 bool mutexCreated;
                 _mutex = new Mutex(true, "mmfservermutex", out mutexCreated);                
-                if (mutexCreated == false) {
+                if (mutexCreated == false)
+                {
                     Console.WriteLine("Could not create mutex; broadcast cancelled");
                     return;
                 }
