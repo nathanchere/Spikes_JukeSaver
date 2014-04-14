@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.Basic", "Basic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.NAudio.SpectrumAnalyser", "Basic\Audio.NAudio.SpectrumAnalyser\Audio.NAudio.SpectrumAnalyser.csproj", "{B5F2DA9D-D019-41DC-96BD-5AFADB898D18}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FmodSharp", "FmodSharp", "{140DFE06-B00F-4C8D-928F-0E894BBFAABF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nFMOD", "nFMOD", "{140DFE06-B00F-4C8D-928F-0E894BBFAABF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Fmod.Basic", "Basic\Audio.Fmod.Basic\Audio.Fmod.Basic.csproj", "{427940F7-ACEB-4B2C-897C-40EF816C1952}"
 EndProject
