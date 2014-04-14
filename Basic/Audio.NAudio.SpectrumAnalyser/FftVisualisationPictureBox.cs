@@ -40,10 +40,11 @@ namespace NAudio.SpectrumAnalyser
             for (int i = 0; i < _data.SpectrumData.Count; i++)
             {                
                 var value = Math.Abs(_data.SpectrumData[i]); // value should always be between 0 : 1.0
+                value = Math.Min(value, 1f);
 
                 float x = i * barWidth;
                 float y = (value*Height*0.5f);
-                float G = (128 + (value * 128));
+                float G = (127 + (value * 128));
                 float B = (int)(255 / Width * x);
                 float R = (int)(DateTime.Now.Millisecond * 0.15);
 

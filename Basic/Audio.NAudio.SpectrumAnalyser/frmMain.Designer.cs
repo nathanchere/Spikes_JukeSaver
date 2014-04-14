@@ -152,7 +152,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMain";
-            this.Text = "nFMOD Demo: Spectrum Analysis";
+            this.Text = "nAudio Demo: Spectrum Analysis";
             ((System.ComponentModel.ISupportInitialize)(this.picVisualisation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numWaveDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSpectrumDetail)).EndInit();
