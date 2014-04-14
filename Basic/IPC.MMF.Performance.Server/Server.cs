@@ -65,7 +65,10 @@ namespace IPC.MMF
                     var message = GetMessage();
 
                     var serializer = new BinaryFormatter();
-                    serializer.Serialize(stream, message);                    
+                    serializer.Serialize(stream, message);
+
+                    Config.RaiseBroadcastEvent(new BroadcastEventArgs(message.Guid));
+
                     Console.WriteLine(message.ToString());
                 }                                       
                 _mutex.WaitOne(0, true);

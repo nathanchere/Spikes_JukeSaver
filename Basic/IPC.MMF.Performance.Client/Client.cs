@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.MemoryMappedFiles;
+using System.Net.Mail;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
@@ -32,9 +33,9 @@ namespace IPC.MMF
             while (true)
             {
                 try
-                {
+                {                    
                     using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
-                    {
+                    {                        
                         bool mutexCreated;
                         var mutex = new Mutex(true, mutexName, out mutexCreated);
 
