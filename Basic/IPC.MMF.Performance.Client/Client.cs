@@ -10,7 +10,7 @@ namespace IPC.MMF
 {
     internal class Client : IDisposable
     {
-        private string lastMessage = null;
+        private Guid lastGuid = Guid.Empty;
 
         public void Dispose()
         {
@@ -19,8 +19,8 @@ namespace IPC.MMF
 
         public Client()
         {
-
         }
+
 
         public void Run()
         {
@@ -28,48 +28,53 @@ namespace IPC.MMF
             var mutexName = "mmfclientmutex" + (Guid.NewGuid());
             Console.Title = mutexName;
 
-            var lastValidGuid = new Guid();
+            var serializer = new BinaryFormatter();
+            bool mutexCreated;
+            var mutex = new Mutex(true, mutexName, out mutexCreated);
 
-            while (true)
-            {
+            using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
+            using (var stream = map.CreateViewStream())
+            while (true)            
+            {                
                 try
-                {                    
-                    using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
-                    {                        
-                        bool mutexCreated;
-                        var mutex = new Mutex(true, mutexName, out mutexCreated);
+                {
+                    stream.Position = 0;
+                    var timestamp = DateTime.Now;
+                    AudioDataDTO result;
 
-                        using (var stream = map.CreateViewStream())
-                        {
-                            var timestamp = DateTime.Now;
-
-                            var serializer = new BinaryFormatter();
-                            AudioDataDTO result;
-
-                            try {
-                                result = serializer.Deserialize(stream) as AudioDataDTO;                                
-                            } catch (SerializationException) {
-                                continue;
-                            }
-                            
-                            if (result == null) continue;
-                            if(result.Guid == lastValidGuid) continue;
-                            
-                            var diff = timestamp - result.Timestamp;
-                            lastValidGuid = result.Guid;
-
-                            Console.WriteLine("Message in; delay: " + diff.TotalMilliseconds);
-                            Console.WriteLine(result.ToString());
-                        }
-                        mutex.ReleaseMutex();
-                        mutex.WaitOne();
-                        mutex.Close();
+                    try
+                    {
+                        result = serializer.Deserialize(stream) as AudioDataDTO;
                     }
+                    catch (SerializationException)
+                    {
+                        if (lastGuid != Guid.Empty)
+                        {
+                            Console.WriteLine("Error deserializing; resetting listener...");
+                            lastGuid = Guid.Empty;
+                        }
+                        continue;
+                    }
+
+                    if (result == null) continue;
+                    if (result.Guid == lastGuid) continue;
+
+                    var diff = timestamp - result.Timestamp;
+                    lastGuid = result.Guid;
+
+                    Console.WriteLine("Message in; delay: " + diff.TotalMilliseconds);
+                    Console.WriteLine(result.ToString());
+                    mutex.WaitOne();
+                    mutex.ReleaseMutex();                                        
+                    Thread.Sleep(16);
                 }
-                catch (Exception ex) {
+                catch (Exception ex)
+                {
                     Console.WriteLine("Error: " + ex.Message);
-                }
+                }                
             }
-        }
+            mutex.Close();
+            Console.WriteLine("Finished Run(), exiting...");
+        }        
     }
 }
