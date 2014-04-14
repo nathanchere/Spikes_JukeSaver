@@ -52,7 +52,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Resources\doowackadoo.mp3">
+    <Content Include="..\..\Resources\doowackadoo.mp3">
       <Link>doowackadoo.mp3</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
