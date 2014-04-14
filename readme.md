@@ -21,6 +21,7 @@ master: [![master] (https://ci.appveyor.com/api/projects/status/lb6us660fonm7i4l
  * **IPC.NamedPipes.LoadTest** - Named Pipes performance under load, and how both client and server can  handle the other side dis-/re-connecting
  * **IPC.MMF.Basic** - bare minimum effort required to get two separate applications talking over memory 
  * **IPC.MMF.Serialization** - sending/receiving CLR objects over memory-mapped files
+ * **IPC.MMF.Performance** - looking at ways to optimise client to reduce CPU usage, especially when 'idling'
 * Graphics
  * **GFX.SFML.Basic** - basic window and drawing a circle on screen
 
