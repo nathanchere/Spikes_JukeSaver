@@ -33,8 +33,8 @@ namespace NAudio.SpectrumAnalyser
             _data.SpectrumData = _data.SpectrumData
                 .Select(f=>1 - Math.Pow(1-f,3))
                 .Select(f=>(float)f)
-                //.Where(f=>f > 0.1)
                 .ToList();
+            if(_data.SpectrumData.Count == 0) return;
 
             float barWidth = Math.Max((Width / _data.SpectrumData.Count),2);
             for (int i = 0; i < _data.SpectrumData.Count; i++)
@@ -58,10 +58,10 @@ namespace NAudio.SpectrumAnalyser
             for (int i = 0; i < _data.WaveData.Count; i++)
             {                
                 var value = _data.WaveData[i]; // value should always be between ±1.0
-
+                value = Math.Min(Math.Max(-1,value), 1);
                 float x = Width * i / _data.WaveData.Count;
                 float y = Height / 2 + (value*Height*0.5f);
-                float R = (128 + (value * 128));
+                float R = (127 + (value * 128));
                 float G = (int)(255 / Width * x);
                 float B = (int)(DateTime.Now.Millisecond * 0.15);                
                 float height = (1 - (float)Math.Pow(1-Math.Abs(value),5)) * 50;

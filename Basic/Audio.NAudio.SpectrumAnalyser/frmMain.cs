@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using NAudio.Dsp;
 using NAudio.Wave;
@@ -48,23 +49,19 @@ namespace NAudio.SpectrumAnalyser
             };
 
             return result;
-        }        
+        }
 
         private void Render()
         {
-            //int spectrumSize = (int)Math.Pow(2,(double) numSpectrumDetail.Value);
-            //int waveSize = (int)numWaveDetail.Value;
+            if (fft == null) return;
 
-            //var spectrum = new float[spectrumSize];
-            //var wavedata = new float[waveSize];
+            var result = new VisData
+            {
+                WaveData = fft.Select(x => x.X).ToList(),
+                SpectrumData = fft.Select(x => x.Y).ToList()
+            };
 
-            //var result = new VisData();
-            //fmod.GetWaveData(wavedata, waveSize, 0);
-            //fmod.GetSpectrum(spectrum, spectrumSize, 0, FFTWindow.Max);
-            //result.WaveData = wavedata.ToList();
-            //result.SpectrumData = spectrum.ToList();
-
-            //picVisualisation.UpdateData(result);
+            picVisualisation.UpdateData(result);
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -79,7 +76,10 @@ namespace NAudio.SpectrumAnalyser
 
         ~frmMain()
         {
-            // TODO: Dispose
+            if (audio != null)
+                audio.Dispose();
+            if (device != null)
+                device.Dispose();
         }
 
         private void numSpectrumDetail_ValueChanged(object sender, EventArgs e)
