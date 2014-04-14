@@ -30,7 +30,8 @@ namespace IPC.MMF
 
             using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
             using (var stream = map.CreateViewStream())
-            while (true) await Task.Run(() => Read(stream));
+            //while (true) await Task.Run(() => Read(stream));
+            while (true) Read(stream);
         }        
 
         private void Read(MemoryMappedViewStream stream)

@@ -11,11 +11,12 @@ namespace IPC.MMF
 {
     internal class Server : IDisposable
     {
-        private const int BROADCAST_INTERVAL = 1500; // 1.5 seconds
+        private const int BATCH_SIZE = 100; // number of messages between sleep
+        private const int SLEEP_TIME = 1; // milliseconds to sleep between batches
 
         private MemoryMappedFile _map;
         private Timer _timer;
-        private Random _random;
+        private readonly Random _random;
         Mutex _mutex;
 
         public void Dispose()
@@ -46,9 +47,11 @@ namespace IPC.MMF
 
         public void Run()
         {
-            _timer.Interval = BROADCAST_INTERVAL;
-            _timer.Elapsed += (sender, args) => Broadcast();
-            _timer.Start();
+            while (true)
+            {
+                for (int i = 0; i < BATCH_SIZE; ++i) Broadcast();
+                Thread.Sleep(1);
+            }
         }
 
         private void Broadcast()
