@@ -58,7 +58,7 @@ namespace NAudio.SpectrumAnalyser
             for (int i = 0; i < _data.WaveData.Count; i++)
             {                
                 var value = _data.WaveData[i]; // value should always be between ±1.0
-                value = Math.Min(Math.Max(-1,value), 1);
+                value = Math.Min(Math.Max(-0.9999f,value), 0.9999f);
                 float x = Width * i / _data.WaveData.Count;
                 float y = Height / 2 + (value*Height*0.5f);
                 float R = (127 + (value * 128));
