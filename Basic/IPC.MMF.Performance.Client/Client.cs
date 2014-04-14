@@ -31,13 +31,10 @@ namespace IPC.MMF
             using (var map = MemoryMappedFile.CreateOrOpen(Config.MAPPED_FILE_NAME, Config.BufferSize))
             using (var stream = map.CreateViewStream())
             while (true) await Task.Run(() => Read(stream));
-
-            Console.WriteLine("Finished Run(), exiting...");
         }        
 
         private void Read(MemoryMappedViewStream stream)
-        {            
-            Thread.Sleep(1); // Drops typical CPU usage on dev machine from 18-23% to <1%
+        {                        
             try
             {
                 var serializer = new BinaryFormatter();
@@ -48,14 +45,20 @@ namespace IPC.MMF
 
                 try {
                     result = serializer.Deserialize(stream) as AudioDataDTO;
-                } catch (SerializationException) {
+                } catch (SerializationException)
+                {
                     if (lastGuid != Guid.Empty) {
                         Console.WriteLine("Error deserializing; resetting listener...");
                         lastGuid = Guid.Empty;
-                    }
+                    }                    
                 }
 
-                if (result == null || result.Guid == lastGuid) return;
+                if (result == null || result.Guid == lastGuid)
+                {
+                    Thread.Sleep(1); // Drops typical CPU usage while 'idle' from 18-23% to <1%
+                    return;
+                }
+
                 lastGuid = result.Guid;                
                 var diff = timestamp - result.Timestamp;                
 
