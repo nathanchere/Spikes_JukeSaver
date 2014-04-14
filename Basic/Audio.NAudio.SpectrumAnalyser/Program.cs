@@ -9,17 +9,9 @@ using NAudio.Wave;
 namespace NAudio.SpectrumAnalyser
 {
     class Program
-    {       
-        const int FFT_SIZE = 2048;
-
+    {               
         static void Main(string[] args)
-        {
-            var quit = new ManualResetEvent(false);
-            Console.CancelKeyPress += (s, a) => {
-                quit.Set();
-                a.Cancel = true;
-            };
-
+        {            
             IWavePlayer device = new DirectSoundOut();
             var audio = new AudioFileReader("doowackadoo.mp3");            
             var aggregator = GetAggregator(audio);            

@@ -2,11 +2,10 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
-namespace nFMOD.Demo.SpectrumAnalysis
+namespace NAudio.SpectrumAnalyser
 {
-    public class FftVisualisationPictureBox : PictureBox
+    public sealed class FftVisualisationPictureBox : PictureBox
     {
         private VisData _data;
 

@@ -1,4 +1,4 @@
-﻿namespace nFMOD.Demo.SpectrumAnalysis
+﻿namespace NAudio.SpectrumAnalyser
 {
     partial class frmMain
     {
@@ -28,7 +28,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.picVisualisation = new nFMOD.Demo.SpectrumAnalysis.FftVisualisationPictureBox();
+            this.picVisualisation = new FftVisualisationPictureBox();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.numWaveDetail = new System.Windows.Forms.NumericUpDown();
